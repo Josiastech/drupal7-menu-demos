@@ -1,0 +1,11 @@
+name = Nexus Navigation Menu
+description = Nexus Site like menu
+package = User interface
+core = 7.x
+
+
+scripts[] = helper.js
+
+stylesheets[all][] = css/component.css
+stylesheets[all][] = css/demo.css
+stylesheets[all][] = css/normalize.css

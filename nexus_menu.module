@@ -1,0 +1,12 @@
+<?php
+
+
+function nexus_menu_page_build(){
+	global $theme_key;
+	$current_theme = variable_get('theme_default', 'none');
+	if($current_theme == $theme_key){
+		drupal_add_js(drupal_get_path('module', 'nexus_menu') . '/js/gnmenu.js', array('preprocess' => FALSE));
+		drupal_add_js(drupal_get_path('module', 'nexus_menu') . '/js/classie.js', array('preprocess' => FALSE));
+		drupal_add_js(drupal_get_path('module', 'nexus_menu') . '/js/modernizr.custom.js', array('preprocess' => FALSE));
+	}
+}
