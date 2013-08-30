@@ -59,7 +59,7 @@
 				});
 				this.menu.addEventListener('mouseout', function(ev) {
 					self._closeMenu();
-					this.menu.style.display="none";
+					//this.menu.style.display="none";
 					document.addEventListener(self.eventtype, self.bodyClickFn);
 				});
 			}

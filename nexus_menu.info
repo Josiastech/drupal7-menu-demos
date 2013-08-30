@@ -9,3 +9,5 @@ scripts[] = helper.js
 stylesheets[all][] = css/component.css
 stylesheets[all][] = css/demo.css
 stylesheets[all][] = css/normalize.css
+
+configure = admin/config/user-interface/nexus_menu

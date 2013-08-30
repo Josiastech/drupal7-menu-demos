@@ -1,5 +1,45 @@
 <?php
 
+define('MENU_DEMO_SELECTOR', '#main_menu_links');
+define('MENU_DEMO_SHOWEFFECT','st-effect-1l');
+define('MENU_DEMO_SHOWITEMS', 'all');
+
+
+
+/**
+ * Helper function for getting effects
+ */
+function nexus_menu_get_effects(){
+	return array(
+		'st-effect-1' => t('Slide on top.'),
+		'st-effect-2' => t('Reveal'),
+		'st-effect-3' => t('Push'),
+		'st-effect-4' => t('Slide along'),
+		'st-effect-5' => t('Reverse slide out'),
+		'st-effect-6' => t('Rotate pusher'),
+		'st-effect-7' => t('3D rotate in'),
+		'st-effect-8' => t('3D rotate out'),
+		'st-effect-9' => t('Scale down pusher'),
+		'st-effect-10' => t('Scale Up'),
+		'st-effect-11' => t('Scale &amp; rotate pusher'),
+		'st-effect-12' => t('Open door'),
+		'st-effect-13' => t('Fall down'),
+		'st-effect-14 '=> t('Delayed 3D Rotate'),
+	);
+}
+
+
+
+function nexus_menu_permission(){
+	return array(
+		'administer mobile navigation' => array(
+			'title' => t('administer nexus menu Drupal'),
+			'description' => t('administer nexus Drupal 7 menu demos'),
+		),
+	);
+}
+
+
 
 function nexus_menu_page_build(){
 	global $theme_key;
@@ -9,4 +49,20 @@ function nexus_menu_page_build(){
 		drupal_add_js(drupal_get_path('module', 'nexus_menu') . '/js/classie.js', array('preprocess' => FALSE));
 		drupal_add_js(drupal_get_path('module', 'nexus_menu') . '/js/modernizr.custom.js', array('preprocess' => FALSE));
 	}
+}
+
+/**
+ * Implements hook_menu().
+ */
+function nexus_menu_menu() {
+  $items = array();
+  $items['admin/config/user-interface/nexus-menu'] = array(
+    'title' => 'Menu Demo Configuration',
+    'page callback' => 'drupal_get_form',
+    'description' => 'Nexus Menu configuration.',
+    'page arguments' => array('nexus_menu_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'nexus_menu.admin.inc',
+  );
+  return $items;
 }
